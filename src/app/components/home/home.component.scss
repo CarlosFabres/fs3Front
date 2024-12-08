@@ -1,0 +1,58 @@
+.card-img-top {
+  object-fit: contain;
+  height: 300px;
+  width: 100%;
+  max-width: 100%;
+  background-color: #f8f9fa;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.description {
+  flex-grow: 1;
+  margin-bottom: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.price-badge {
+  transition: transform 0.2s ease;
+}
+
+.price-badge:hover {
+  transform: scale(1.1);
+}
+
+.btn-compact {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+}

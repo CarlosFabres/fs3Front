@@ -1,0 +1,91 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h2 class="mb-0">Perfil del Usuario</h2>
+      <button class="btn btn-outline-light btn-sm" (click)="cerrarSesion()">
+        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+      </button>
+    </div>
+    <div class="card-body d-flex align-items-center">
+      <!-- Imagen de perfil -->
+      <img 
+        [src]="'assets/img/' + (usuario.imagen ? usuario.imagen : 'perfil.png')" 
+        class="rounded-circle img-thumbnail me-4 perfil-img" 
+        [alt]="usuario.username" 
+      />
+      <!-- Información del usuario -->
+      <div>
+        <p class="mb-2">
+          <strong>Username: </strong> <span class="text-muted">{{ usuario.username }}</span>
+        </p>
+        <p class="mb-2">
+          <strong>Email: </strong> <span class="text-muted">{{ usuario.email }}</span>
+        </p>
+        <p class="mb-4">
+          <strong>Rol: </strong> <span class="badge bg-info text-dark">{{ usuario.rol }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="card-footer bg-light mt-4">
+      <h3 class="h5 text-primary">Editar Username</h3>
+      <form (ngSubmit)="actualizarUsername()" class="row g-3">
+        <div class="col-12">
+          <label for="username" class="form-label">Nuevo Username:</label>
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="nuevoUsername"
+            name="username"
+            class="form-control"
+            placeholder="Escribe tu nuevo username"
+            required
+          />
+        </div>
+        <div class="col-12 text-end">
+          <button type="submit" class="btn btn-success">Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Listado de usuarios (visible solo para admins) -->
+  <div *ngIf="usuario.rol === 'Admin'" class="card shadow-sm mt-4">
+    <div class="card-header bg-secondary text-white">
+      <h3 class="mb-0">Listado de Usuarios</h3>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive"> <!-- Contenedor responsivo -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Acciones</th> <!-- Columna para acciones -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of usuarios">
+              <td>{{ user.id }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <span class="badge" [ngClass]="user.rol === 'Admin' ? 'bg-primary' : 'bg-info'">{{ user.rol }}</span>
+              </td>
+              <td>
+                <button 
+                  class="btn btn-danger btn-sm" 
+                  (click)="confirmarEliminacion(user.id)"
+                  [disabled]="user.id === usuario.id">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>    
+  </div>
+</div>  

@@ -1,0 +1,44 @@
+.card-body {
+  display: flex;
+  align-items: center;
+  
+  .perfil-img {
+    width: 100px; /* Tamaño de la imagen en dispositivos móviles */
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #0056b3;
+
+    @media (min-width: 768px) {
+      width: 150px; /* Tamaño de la imagen en pantallas más grandes */
+      height: 150px;
+    }
+  }
+
+  .me-4 {
+    margin-right: 1.5rem; // Espaciado entre la imagen y el texto
+  }
+}
+
+.card-footer {
+  border-top: 2px solid #f0f0f0;
+}
+
+.table-responsive {
+  overflow-x: auto; /* Habilita scroll horizontal */
+}
+
+.table {
+  white-space: nowrap; /* Evita que el texto se envuelva en celdas */
+}
+
+@media (min-width: 768px) {
+  .table-responsive {
+    /* Ajustar el ancho de la tabla para pantallas medianas y grandes */
+    width: 100%;
+  }
+
+  .table {
+    /* Ajustar el tamaño de las celdas y las columnas en pantallas grandes */
+    font-size: 1rem;
+  }
+}

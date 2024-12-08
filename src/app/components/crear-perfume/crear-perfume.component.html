@@ -1,0 +1,55 @@
+<div class="container py-4">
+    <h2 class="text-center mb-4">Crear Nuevo Perfume</h2>
+
+    <form (ngSubmit)="crearPerfume()" class="shadow p-4 bg-light rounded">
+
+        <!-- Nombre -->
+        <div class="form-group mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input id="nombre" [(ngModel)]="perfume.nombre" name="nombre" class="form-control" required
+                placeholder="Introduce el nombre del perfume" />
+        </div>
+
+        <!-- Descripción -->
+        <div class="form-group mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea id="descripcion" [(ngModel)]="perfume.descripcion" name="descripcion" class="form-control"
+                rows="3" required placeholder="Introduce una breve descripción del perfume"></textarea>
+        </div>
+
+        <!-- Precio -->
+        <div class="form-group mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input id="precio" [(ngModel)]="perfume.precio" name="precio" class="form-control" type="number" required
+                placeholder="Introduce el precio del perfume" />
+        </div>
+
+        <!-- Stock -->
+        <div class="form-group mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input id="stock" [(ngModel)]="perfume.stock" name="stock" class="form-control" type="number" required
+                placeholder="Introduce la cantidad de stock disponible" />
+        </div>
+
+        <!-- Marca -->
+        <div class="form-group mb-3">
+            <label for="marca" class="form-label">Marca</label>
+            <input id="marca" [(ngModel)]="perfume.marca" name="marca" class="form-control" required
+                placeholder="Introduce la marca del perfume" />
+        </div>
+
+        <!-- Categoría -->
+        <div class="form-group mb-3">
+            <label for="categoria" class="form-label">Categoría</label>
+            <input id="categoria" [(ngModel)]="perfume.categoria" name="categoria" class="form-control" required
+                placeholder="Introduce la categoría del perfume" />
+        </div>
+
+        <!-- Botón -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-success btn-lg mt-3">
+                <i class="bi bi-pencil-square"></i> Crear Perfume
+            </button>
+        </div>
+    </form>
+</div>
